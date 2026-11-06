@@ -16,7 +16,7 @@ const imageUrl = (product, width=700) => `https://images.unsplash.com/${product.
 let category = 'Todo';
 let bag = [];
 try {
-  const saved = JSON.parse(localStorage.getItem('alto-selection-v1') || '[]');
+  const saved = JSON.parse(localStorage.getItem('aracnes-selection-v1') || localStorage.getItem('alto-selection-v1') || '[]');
   if (Array.isArray(saved)) bag = saved.filter(item => item && products.some(p => p.id === item.id && p.sizes.includes(item.size))).map(item => ({id:item.id,size:item.size})).filter((item,index,items) => items.findIndex(other => other.id === item.id && other.size === item.size) === index);
 } catch { /* El catálogo también funciona si el almacenamiento no está disponible. */ }
 
@@ -47,7 +47,7 @@ function openProduct(id) {
 }
 
 function persistBag() {
-  try { localStorage.setItem('alto-selection-v1', JSON.stringify(bag)); } catch { toast('La selección se guardará solo durante esta visita.'); }
+  try { localStorage.setItem('aracnes-selection-v1', JSON.stringify(bag)); } catch { toast('La selección se guardará solo durante esta visita.'); }
   renderBag();
 }
 
@@ -59,6 +59,9 @@ function renderBag() {
     return `<div class="bag-item"><img src="${imageUrl(product,200)}" alt="${product.alt}"><div><h3>${product.name}</h3><p>Talla: ${item.size}<br>Precio por confirmar</p></div><button data-remove="${index}" aria-label="Quitar ${product.name}, talla ${item.size}">Quitar</button></div>`;
   }).join('') : '<p class="bag-note">Tu bolsa está esperando tus favoritos. Explora la colección y añade alguna prenda.</p><button class="text-link" data-close="bag-dialog">Seguir explorando →</button>';
   $('#download-selection').disabled = !bag.length;
+  const message = ['Hola, ARACNES. Quisiera consultar estas prendas de su catálogo de muestra:', '', ...bag.map((item,index) => `${index+1}. ${products.find(p => p.id === item.id).name} — Talla ${item.size}`), '', '¿Podrían confirmarme los precios y la disponibilidad?'].join('\n');
+  $('#whatsapp-selection').href = `https://wa.me/584126024425?text=${encodeURIComponent(message)}`;
+  $('#whatsapp-selection').hidden = !bag.length;
 }
 
 let toastTimer;
@@ -86,9 +89,9 @@ $('#bag-open').addEventListener('click', () => { renderBag(); $('#bag-dialog').s
 document.querySelectorAll('dialog').forEach(dialog => dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } }));
 $('#download-selection').addEventListener('click', () => {
   if (!bag.length) return;
-  const text = ['ALTO · Mi selección de muestra','La Grita, Táchira','',...bag.map((item,index) => `${index+1}. ${products.find(p => p.id === item.id).name} — Talla ${item.size}`),'','Precios y disponibilidad por confirmar.','Este documento no es un pedido, una reserva ni un comprobante de pago.'].join('\n');
+  const text = ['ARACNES · Mi selección de muestra','La Grita, Táchira','',...bag.map((item,index) => `${index+1}. ${products.find(p => p.id === item.id).name} — Talla ${item.size}`),'','Precios y disponibilidad por confirmar.','Este documento no es un pedido, una reserva ni un comprobante de pago.'].join('\n');
   const url = URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
-  const anchor = document.createElement('a'); anchor.href = url; anchor.download = 'alto-mi-seleccion.txt'; document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
+  const anchor = document.createElement('a'); anchor.href = url; anchor.download = 'aracnes-mi-seleccion.txt'; document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
   toast('Tu selección se ha descargado.');
 });
 $('#year').textContent = String(new Date().getFullYear());

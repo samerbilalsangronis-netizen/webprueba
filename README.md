@@ -1,13 +1,13 @@
-# ALTO · Ropa en La Grita
+# ARACNES · Ropa en La Grita
 
-Primera versión de una web de ropa para La Grita, Táchira. **ALTO es un nombre provisional.**
+Primera versión de una web de ropa para La Grita, Táchira.
 
 ## Incluye
 
 - Diseño adaptable a teléfonos, tabletas y escritorio.
 - Catálogo ilustrativo con categorías, búsqueda y orden alfabético.
 - Detalle de prendas con selección de talla de referencia.
-- Bolsa guardada en el navegador y descarga de la selección como texto.
+- Bolsa guardada en el navegador, descarga como texto y consulta de la selección por WhatsApp al +58 412 602 4425.
 - Navegación accesible con teclado, diálogos y soporte para movimiento reducido.
 
 ## Publicar en Vercel
@@ -16,12 +16,12 @@ Importar este repositorio, seleccionar la rama `main` y desplegar. Es un sitio e
 
 ## Personalizar antes de abrir ventas
 
-1. Sustituir el nombre provisional y textos en `index.html`, `favicon.svg` y `app.js`.
+1. Personalizar los textos y sustituir el monograma por el logo oficial si se dispone de él.
 2. Reemplazar el arreglo `products` de `app.js` por prendas, tallas, fotografías y precios reales.
-3. Agregar teléfono/WhatsApp, redes, dirección y horarios confirmados.
+3. Agregar redes, dirección y horarios confirmados. WhatsApp ya está configurado: +58 412 602 4425.
 4. Configurar un canal real de pedidos o un backend si se necesitan inventario, pagos o administración.
 
-Las fotos se cargan desde Unsplash y las fuentes desde Google Fonts; se requiere conexión para esos recursos, con fuentes de respaldo locales. Son imágenes de referencia y pueden no representar exactamente la prenda descrita. La paleta es ilustrativa, no es un selector de inventario. El sitio no cobra, no reserva productos y no transmite la selección a la tienda. No contiene credenciales.
+Las fotos se cargan desde Unsplash y las fuentes desde Google Fonts; se requiere conexión para esos recursos, con fuentes de respaldo locales. Son imágenes de referencia y pueden no representar exactamente la prenda descrita. La paleta es ilustrativa, no es un selector de inventario. El sitio no cobra, no reserva productos y solo prepara un mensaje de WhatsApp; el visitante debe enviarlo para compartir su selección con la tienda. No contiene credenciales.
 
 ## Archivos
 

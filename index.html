@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="description" content="ALTO: una propuesta de moda en La Grita, Táchira. Explora prendas y crea tu selección. Catálogo de demostración.">
+  <title>ALTO — Viste a tu manera · La Grita</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#catalogo">Ir al catálogo</a>
+  <div class="announcement">DESDE LA GRITA, CON ESTILO PROPIO <span>COLECCIÓN DE MUESTRA</span></div>
+  <header class="header">
+    <a class="logo" href="#inicio" aria-label="ALTO, inicio">ALTO<span>LA GRITA</span></a>
+    <nav aria-label="Navegación principal"><a href="#catalogo">La colección</a><a href="#esencia">Nuestra esencia</a><a href="#encuentranos">La Grita</a></nav>
+    <div class="header-actions"><button class="icon-button" id="search-open" aria-label="Buscar prendas"><svg><use href="#i-search"/></svg></button><button class="bag-button" id="bag-open" aria-label="Abrir mi bolsa">Mi bolsa <span id="bag-count">0</span><svg><use href="#i-bag"/></svg></button></div>
+  </header>
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="line"></span> UNA NUEVA FORMA DE VESTIR LO COTIDIANO</p><h1 id="hero-title">Tu ciudad.<br>Tu ritmo.<br><em>Tu estilo.</em></h1><p class="hero-description">Prendas para esos días que empiezan con un café y terminan en un buen plan. Hazlas tuyas.</p><a href="#catalogo" class="button dark">Explorar la colección <svg><use href="#i-arrow"/></svg></a><div class="hero-foot"><span>08° 08′ N · 71° 59′ O</span><span>LA GRITA, TÁCHIRA</span></div></div>
+      <div class="hero-image"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85" alt="Moda urbana con prendas de tonos neutros" fetchpriority="high"><div class="image-label"><span>EL ARTE DE SER TÚ</span><span>01 / COTIDIANO</span></div><span class="hero-stamp">HECHO PARA<br><em>tu día a día</em></span></div>
+    </section>
+    <div class="values-strip"><span>Menos reglas. Más tú.</span><svg><use href="#i-star"/></svg><span>Esenciales con personalidad</span><svg><use href="#i-star"/></svg><span>Estilo a otra altura</span><svg><use href="#i-star"/></svg></div>
+    <section class="collection section" id="catalogo" aria-labelledby="collection-title">
+      <div class="section-heading"><div><p class="eyebrow">EL CLÓSET QUE VA CONTIGO</p><h2 id="collection-title">Encuentra tu próximo <em>favorito.</em></h2></div><span class="small-label">BUENOS BÁSICOS. GRANDES PLANES.</span></div>
+      <div class="catalog-toolbar"><div class="filters" aria-label="Filtrar colección"><button class="active" data-category="Todo" aria-pressed="true">Todo</button><button data-category="Mujer" aria-pressed="false">Mujer</button><button data-category="Hombre" aria-pressed="false">Hombre</button><button data-category="Accesorios" aria-pressed="false">Accesorios</button></div><label class="sort">Ordenar <select id="sort"><option value="featured">Destacados</option><option value="az">Nombre: A–Z</option><option value="za">Nombre: Z–A</option></select></label></div>
+      <form class="search-form" id="search-form" role="search" hidden><label for="search">Busca tu próxima prenda</label><div><input type="search" id="search" placeholder="Camisa, denim, bolso…" autocomplete="off"><button type="button" id="search-clear">Limpiar</button></div></form>
+      <p class="demo-note">Catálogo de muestra · Las prendas, fotos y tallas son ilustrativas. Disponibilidad y precios por confirmar.</p>
+      <div class="product-grid" id="products"></div><p id="empty-results" hidden>No encontramos prendas con esa búsqueda. Prueba con otra palabra.</p>
+      <p class="results" id="results" aria-live="polite"></p>
+    </section>
+    <section class="editorial" id="esencia"><div class="editorial-image"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=85" alt="Selección de prendas en un perchero" loading="lazy"><span>LA BELLEZA DE LO SIMPLE.</span></div><div class="editorial-copy"><p class="eyebrow">ESTILO A OTRA ALTURA</p><h2>Vestir bien.<br>Sentirte <em>tú.</em></h2><p>Nos inspira el aire de montaña, las calles de La Grita y la libertad de combinar a tu manera.</p><p>Una propuesta de prendas versátiles, texturas que se complementan y básicos que dan espacio a tu personalidad.</p><a href="#catalogo" class="text-link">Arma tu propia combinación <svg><use href="#i-arrow"/></svg></a><span class="editorial-mark">A.</span></div></section>
+    <section class="location section" id="encuentranos"><p class="eyebrow">NUESTRO PUNTO DE PARTIDA</p><h2>De La Grita.<br><em>Para tu mundo.</em></h2><p>Una propuesta de moda con espíritu andino.<br>La Grita, estado Táchira, Venezuela.</p><a href="https://www.google.com/maps/search/?api=1&query=La+Grita+Tachira+Venezuela" target="_blank" rel="noopener noreferrer" class="text-link">Explorar La Grita <svg><use href="#i-arrow"/></svg></a><p class="location-note">La dirección de la tienda, el horario y el contacto se anunciarán aquí.</p></section>
+  </main>
+  <footer><div class="footer-top"><a href="#inicio" class="logo">ALTO<span>LA GRITA</span></a><p>El estilo empieza<br>por ser tú.</p><a href="#catalogo">Volver a la colección ↗</a></div><div class="footer-bottom"><span>© <span id="year"></span> ALTO · Concepto de tienda</span><span>Nombre provisional · Sitio de demostración</span><a href="#inicio">Arriba ↑</a></div></footer>
+  <dialog id="product-dialog" class="product-dialog"><button class="close icon-button" data-close="product-dialog" aria-label="Cerrar detalle">✕</button><div id="product-detail"></div></dialog>
+  <dialog id="bag-dialog" class="bag-dialog"><div class="bag-head"><h2>Tu <em>selección.</em></h2><button class="icon-button" data-close="bag-dialog" aria-label="Cerrar bolsa">✕</button></div><p class="demo-note">Guarda tus favoritos en este dispositivo. Esta selección no reserva prendas ni genera una compra.</p><div id="bag-items"></div><button id="download-selection" class="button dark">Descargar mi selección <svg><use href="#i-arrow"/></svg></button><p class="bag-note">Próximamente podrás consultar tu selección con la tienda cuando se configure su contacto.</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol><symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Zm3 0V5a4 4 0 0 1 8 0v2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 1v22M1 12h22M4 4l16 16M4 20 20 4"/></symbol></svg>
+</body>
+</html>

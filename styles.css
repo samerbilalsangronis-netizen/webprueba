@@ -7,3 +7,5 @@
 @media(max-width:700px){.header .logo,.footer-top .logo{font-size:28px;letter-spacing:-1px}.header-actions{gap:5px}.header{gap:8px}.bag-button{gap:6px}.logo span{font-size:8px;letter-spacing:3px}}
 #download-selection{background:transparent;color:var(--ink);border:1px solid var(--line)}
 #whatsapp-selection{gap:12px}
+
+.price-label{color:var(--ink);font-size:11px}.detail-gallery{min-width:0}.detail-gallery>img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}.gallery-thumbs{display:flex;gap:8px;overflow:auto;margin-top:10px}.gallery-thumbs button{padding:0;border:1px solid var(--line);width:55px;min-width:55px;height:70px;background:none}.gallery-thumbs img{height:100%;width:100%}.detail-copy .detail-price{font-size:20px;color:var(--ink)}.product-description{white-space:pre-line;overflow-wrap:anywhere}.product h3,.detail-copy h2{overflow-wrap:anywhere}@media(max-width:1000px){.price-label{display:block;white-space:normal}}@media(max-width:700px){.product-meta{display:block}.price-label{padding-top:6px;font-size:11px}.detail-gallery>img{height:260px;aspect-ratio:auto}}

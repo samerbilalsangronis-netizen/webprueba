@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f2eb">
-  <meta name="description" content="ARACNES: una propuesta de moda en La Grita, Táchira. Explora prendas y crea tu selección. Catálogo de demostración.">
+  <meta name="description" content="ARACNES: una propuesta de moda en La Grita, Táchira. Explora prendas y crea tu selección. Moda con estilo propio.">
   <title>ARACNES — Viste a tu manera · La Grita</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <script src="app.js" type="module"></script>
 </head>
 <body>
   <a class="skip" href="#catalogo">Ir al catálogo</a>
-  <div class="announcement">DESDE LA GRITA, CON ESTILO PROPIO <span>COLECCIÓN DE MUESTRA</span></div>
+  <div class="announcement">DESDE LA GRITA, CON ESTILO PROPIO <span id="collection-label">COLECCIÓN ARACNES</span></div>
   <header class="header">
     <a class="logo" href="#inicio" aria-label="ARACNES, inicio">ARACNES<span>LA GRITA</span></a>
     <nav aria-label="Navegación principal"><a href="#catalogo">La colección</a><a href="#esencia">Nuestra esencia</a><a href="#encuentranos">La Grita</a></nav>
@@ -29,14 +29,14 @@
       <div class="section-heading"><div><p class="eyebrow">EL CLÓSET QUE VA CONTIGO</p><h2 id="collection-title">Encuentra tu próximo <em>favorito.</em></h2></div><span class="small-label">BUENOS BÁSICOS. GRANDES PLANES.</span></div>
       <div class="catalog-toolbar"><div class="filters" aria-label="Filtrar colección"><button class="active" data-category="Todo" aria-pressed="true">Todo</button><button data-category="Mujer" aria-pressed="false">Mujer</button><button data-category="Hombre" aria-pressed="false">Hombre</button><button data-category="Accesorios" aria-pressed="false">Accesorios</button></div><label class="sort">Ordenar <select id="sort"><option value="featured">Destacados</option><option value="az">Nombre: A–Z</option><option value="za">Nombre: Z–A</option></select></label></div>
       <form class="search-form" id="search-form" role="search" hidden><label for="search">Busca tu próxima prenda</label><div><input type="search" id="search" placeholder="Camisa, denim, bolso…" autocomplete="off"><button type="button" id="search-clear">Limpiar</button></div></form>
-      <p class="demo-note">Catálogo de muestra · Las prendas, fotos y tallas son ilustrativas. Disponibilidad y precios por confirmar.</p>
+      <p class="demo-note" id="catalog-note" role="status">Cargando colección…</p><button class="text-link" id="catalog-retry" hidden>Volver a cargar</button>
       <div class="product-grid" id="products"></div><p id="empty-results" hidden>No encontramos prendas con esa búsqueda. Prueba con otra palabra.</p>
       <p class="results" id="results" aria-live="polite"></p>
     </section>
     <section class="editorial" id="esencia"><div class="editorial-image"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=85" alt="Selección de prendas en un perchero" loading="lazy"><span>LA BELLEZA DE LO SIMPLE.</span></div><div class="editorial-copy"><p class="eyebrow">ESTILO A OTRA ALTURA</p><h2>Vestir bien.<br>Sentirte <em>tú.</em></h2><p>Nos inspira el aire de montaña, las calles de La Grita y la libertad de combinar a tu manera.</p><p>Una propuesta de prendas versátiles, texturas que se complementan y básicos que dan espacio a tu personalidad.</p><a href="#catalogo" class="text-link">Arma tu propia combinación <svg><use href="#i-arrow"/></svg></a><span class="editorial-mark">A.</span></div></section>
     <section class="location section" id="encuentranos"><p class="eyebrow">NUESTRO PUNTO DE PARTIDA</p><h2>De La Grita.<br><em>Para tu mundo.</em></h2><p>Una propuesta de moda con espíritu andino.<br>La Grita, estado Táchira, Venezuela.</p><a href="https://www.google.com/maps/search/?api=1&query=La+Grita+Tachira+Venezuela" target="_blank" rel="noopener noreferrer" class="text-link">Explorar La Grita <svg><use href="#i-arrow"/></svg></a><p><a class="button dark" href="https://wa.me/584126024425" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <svg><use href="#i-arrow"/></svg></a></p><p class="location-note">Escríbenos al 0412 602 4425 para consultar prendas, precios y disponibilidad. La dirección y el horario están por confirmar.</p></section>
   </main>
-  <footer><div class="footer-top"><a href="#inicio" class="logo">ARACNES<span>LA GRITA</span></a><p>El estilo empieza<br>por ser tú.</p><a href="#catalogo">Volver a la colección ↗</a></div><div class="footer-bottom"><span>© <span id="year"></span> ARACNES · La Grita</span><span>Catálogo de muestra</span><a href="#inicio">Arriba ↑</a></div></footer>
+  <footer><div class="footer-top"><a href="#inicio" class="logo">ARACNES<span>LA GRITA</span></a><p>El estilo empieza<br>por ser tú.</p><a href="#catalogo">Volver a la colección ↗</a></div><div class="footer-bottom"><span>© <span id="year"></span> ARACNES · La Grita</span><span id="footer-catalog-label">Colección ARACNES</span><a href="/admin.html">Administrar tienda</a><a href="#inicio">Arriba ↑</a></div></footer>
   <dialog id="product-dialog" class="product-dialog"><button class="close icon-button" data-close="product-dialog" aria-label="Cerrar detalle">✕</button><div id="product-detail"></div></dialog>
   <dialog id="bag-dialog" class="bag-dialog"><div class="bag-head"><h2>Tu <em>selección.</em></h2><button class="icon-button" data-close="bag-dialog" aria-label="Cerrar bolsa">✕</button></div><p class="demo-note">Guarda tus favoritos en este dispositivo. Esta selección no reserva prendas ni genera una compra.</p><div id="bag-items"></div><a id="whatsapp-selection" class="button dark" href="https://wa.me/584126024425" target="_blank" rel="noopener noreferrer" hidden>Consultar mi selección por WhatsApp <svg><use href="#i-arrow"/></svg></a><button id="download-selection" class="button dark">Descargar mi selección <svg><use href="#i-arrow"/></svg></button><p class="bag-note">El botón abre WhatsApp con tus prendas y tallas. Revisa el mensaje y envíalo para consultar precios y disponibilidad al 0412 602 4425. No se realiza ningún pago ni reserva desde la web.</p></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
